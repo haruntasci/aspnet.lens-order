@@ -1,0 +1,84 @@
+﻿@model OrderViewModel
+@{
+    ViewData["Title"] = "Order";
+}
+
+
+
+<h1 class="fs-3 pb-2">Sipariş Detayı</h1>
+<hr />
+<div>
+    <form>
+        <button type="submit" asp-action="GenerateExcel" asp-controller="Home" asp-route-id="@Model.OrderId" class="btn btn-outline-success">Tablo</button>
+        <button type="submit" asp-action="GeneratePdf" asp-controller="Home" asp-route-id="@Model.OrderId" class="btn btn-outline-danger">Tablo</button>
+    </form>
+</div>
+<hr />
+<div class="row">
+    <div class="col">
+
+        <div class="row">
+            <div class="col">
+                <div class="card">
+                    <div class="card-body">
+                        <div class="mb-4">
+                            <div class="fw-bold">Sipariş #@Model.OrderId</div>
+                            <div class="fw-bold">Sipariş Tarihi: @Model.OrderDate</div>
+                        </div>
+                        <div class="card">
+                            <div class="card-body">
+                                <div class="row">
+                                    <div class="col-6">
+                                        <div class="fw-bold mb-2">Fatura Adresi</div>
+                                        <div class="ms-3">
+                                            <div class="mb-1">Ad: @Model.FullName</div>
+                                            <div class="mb-1">Tel: @Model.PhoneNumber</div>
+                                            <div class="mb-1">Adres: @Model.Address</div>
+                                            <div class="mb-1">Ödeme şekli: @Model.PaymentMethod</div>
+                                        </div>
+                                    </div>
+                                    <div class="col-6">
+                                        <div class="fw-bold mb-2">Teslimat Bilgisi</div>
+                                        <div class="ms-3">
+                                            <div class="mb-1">Ad: @Model.FullName</div>
+                                            <div class="mb-1">Tel: @Model.PhoneNumber</div>
+                                            <div class="mb-1">Adres: @Model.Address</div>
+                                            <div class="mb-1">Teslimat yöntemi: @Model.DeliveryMethod</div>
+                                        </div>
+                                    </div>
+
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+                <div class="card">
+                    <div class="card-body">
+                        <div>Ürün(ler)</div>
+                        <table class="table">
+                            <thead>
+                                <tr>
+                                    <th scope="col">Ürün Adı</th>
+                                    <th scope="col">Fiyat</th>
+                                    <th scope="col">Adet</th>
+                                    <th scope="col">Toplam</th>
+                                </tr>
+                            </thead>
+                            <tbody>
+                                <tr>
+                                    <th scope="row">@Model.ProductName</th>
+                                    <td>@Model.ProductPrice TL</td>
+                                    <td>@Model.ProductCount</td>
+                                    <td>@Model.ProductTotalPrice TL</td>
+                                </tr>
+                            </tbody>
+                        </table>
+</div>
+                </div>
+            </div>
+        </div>
+
+        
+    </div>
+
+</div>

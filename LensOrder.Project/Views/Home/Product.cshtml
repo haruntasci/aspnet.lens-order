@@ -1,0 +1,66 @@
+﻿@model ProductViewModel
+@{
+    ViewData["Title"] = "Buy Product";
+}
+
+
+<div class="row">
+    <div class="col-4 offset-4">
+        <h1 class="display-4 border-bottom text-center pb-2">@ViewData["Title"]</h1>
+    </div>
+</div>
+
+<div class="row">
+    <div class="col-4 offset-4">
+        <form method="post">
+            <div asp-validation-summary="ModelOnly" class="text-danger small"></div>
+            <div class="form-group mb-3">
+                <label asp-for="ProductName" class="form-label">Product Name</label>
+                <select asp-for="ProductName" class="form-select">
+                    <option value="">Please Select</option>
+                    <option value="Acuvue">Acuvue</option>
+                    <option value="Pure Vision">Pure Vision</option>
+                    <option value="Air Optix">Air Optix</option>
+                    <option value="BioTrue">BioTrue</option>
+                    <option value="Bausch+Lomb">Bausch+Lomb</option>
+                </select>
+                <span asp-validation-for="ProductName" class="text-danger small"></span>
+            </div>
+            <div class="form-group mb-3">
+                <label asp-for="ProductCount" class="form-label">ProductCount</label>
+                <input asp-for="ProductCount" class="form-control" placeholder="2" />
+                <span class="text-danger small" asp-validation-for="ProductCount"></span>
+            </div>
+            <div class="form-group mb-3">
+                <label asp-for="FullName" class="form-label">FullName</label>
+                <input asp-for="FullName" class="form-control" placeholder="john doe" />
+                <span class="text-danger small" asp-validation-for="FullName"></span>
+            </div>
+            <div class="form-group mb-3">
+                <label asp-for="PhoneNumber" class="form-label">PhoneNumber</label>
+                <input asp-for="PhoneNumber" class="form-control" placeholder="05xx xxx xx xx" />
+                <span class="text-danger small" asp-validation-for="PhoneNumber"></span>
+            </div>
+            <div class="form-group mb-3">
+                <label asp-for="Address" class="form-label">Address</label>
+                <input asp-for="Address" class="form-control" placeholder="Address" />
+                <span class="text-danger small" asp-validation-for="Address"></span>
+            </div>
+            <div class="form-group mb-3">
+                <label asp-for="PaymentMethod" class="form-label">PaymentMethod</label>
+                <input asp-for="PaymentMethod" class="form-control" placeholder="Credit card" />
+                <span class="text-danger small" asp-validation-for="PaymentMethod"></span>
+            </div>
+            <div class="form-group mb-3">
+                <label asp-for="DeliveryMethod" class="form-label">DeliveryMethod</label>
+                <input asp-for="DeliveryMethod" class="form-control" placeholder="UPS" />
+                <span class="text-danger small" asp-validation-for="DeliveryMethod"></span>
+            </div>
+
+
+            <div class="form-group mb-3 d-grid">
+                <button type="submit" class="btn btn-primary d-block"><i class="fa-solid fa-paper-plane me-2"></i>Purchase</button>
+            </div>
+        </form>
+    </div>
+</div>

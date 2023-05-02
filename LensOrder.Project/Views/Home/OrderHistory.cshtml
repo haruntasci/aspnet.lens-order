@@ -1,0 +1,30 @@
+﻿@model List<OrderViewModel>
+@{
+    ViewData["Title"] = "Sipariş Geçmişim";
+}
+<h1>Sipariş Geçmişim</h1>
+<hr />
+<div class="row">
+    <div class="col">
+        <form>
+            @foreach (var item in Model)
+            {
+                <div class="card m-3">
+                    <div class="card-body">
+                        <div class="row">
+                            <div class="col-4">
+                                <div class="fw-bold">Sipariş Numarası: @item.OrderId</div>
+                                <div>Sipariş Tarihi: @item.OrderDate</div>
+                                <div>Sipariş Toplamı: @item.ProductTotalPrice</div>
+                            </div>
+                            <div class="col-4 offset-4">
+                                <button asp-action="Order" asp-controller="Home" asp-route-id="@item.OrderId" class="btn btn-info">Detaylar</button>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            }
+        </form>
+    </div>
+</div>
+
